@@ -2,17 +2,11 @@
   import { onMount, onDestroy } from "svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import { Input } from "$lib/components/ui/input";
-  import { Switch } from "$lib/components/ui/switch";
   import { ScrollArea } from "$lib/components/ui/scroll-area/index.js";
-  import {
-    Search,
-    Pin,
-    X,
-    Settings,
-    Trash2,
-    Shield,
-    Clipboard,
-  } from "@lucide/svelte";
+  import { Search, Pin, X, Trash2, Clipboard } from "@lucide/svelte";
+  import SunIcon from "@lucide/svelte/icons/sun";
+  import MoonIcon from "@lucide/svelte/icons/moon";
+  import { toggleMode } from "mode-watcher";
   import { listen } from "@tauri-apps/api/event";
   import { toast } from "svelte-sonner";
   import { fly, scale } from "svelte/transition";
@@ -231,14 +225,28 @@
   <div
     class="p-2 border-t border-border/40 bg-muted/20 backdrop-blur-md mt-auto"
   >
-    <div class="flex flex-col gap-1">
+    <div class="flex items-center gap-2">
       <Button
         variant="ghost"
         onclick={clearHistory}
-        class="justify-start w-full h-8 px-2 text-xs text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
+        class="justify-start flex-1 h-8 px-2 text-xs text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
       >
         <Trash2 class="h-3.5 w-3.5 mr-2" />
         Clear history
+      </Button>
+
+      <Button
+        onclick={toggleMode}
+        variant="outline"
+        size="icon"
+        class="h-8 w-8"
+      >
+        <SunIcon
+          class="transition-all h-[1.2rem] w-[1.2rem] rotate-0 scale-100 dark:-rotate-90 dark:scale-0"
+        />
+        <MoonIcon
+          class="transition-all absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 dark:rotate-0 dark:scale-100"
+        />
       </Button>
     </div>
   </div>

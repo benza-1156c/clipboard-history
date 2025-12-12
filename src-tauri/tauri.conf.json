@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "clipbord",
+        "title": "Clipboard History",
         "width": 370,
         "height": 600
       }
