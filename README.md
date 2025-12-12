@@ -1,7 +1,11 @@
-# Tauri + SvelteKit + TypeScript
+# Clipboard History
 
-This template should help get you started developing with Tauri, SvelteKit and TypeScript in Vite.
+![Screenshot](https://img5.pic.in.th/file/secure-sv1/Screenshot-from-2025-12-12-23-25-11.png)
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
+- [x] Clipboard history
+- [x] Copy to clipboard
+- [x] Light mode
+- [x] Dark mode
+-
