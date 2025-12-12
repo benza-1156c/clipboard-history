@@ -8,4 +8,3 @@
 - [x] Copy to clipboard
 - [x] Light mode
 - [x] Dark mode
--
