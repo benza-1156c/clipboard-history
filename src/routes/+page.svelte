@@ -10,6 +10,8 @@
   import { listen } from "@tauri-apps/api/event";
   import { toast } from "svelte-sonner";
   import { fly, scale } from "svelte/transition";
+  import hljs from "highlight.js";
+  import "highlight.js/styles/atom-one-dark.css";
 
   let unlisten: (() => void) | null = null;
   let history: ClipboardItem[] = [];
@@ -112,6 +114,13 @@
       toast.success("Copied to clipboard");
     } catch (err) {}
   }
+
+  function highlightCode(content: string) {
+    if (!content) return "";
+    const truncated =
+      content.length > 500 ? content.slice(0, 500) + "..." : content;
+    return hljs.highlightAuto(truncated).value;
+  }
 </script>
 
 <div
@@ -157,12 +166,12 @@
                 />
               </div>
             {:else}
-              <p
+              <div
                 class="text-sm text-foreground/90 line-clamp-1
-                break-all font-medium leading-relaxed"
+                break-all font-mono leading-relaxed overflow-hidden pointer-events-none"
               >
-                {item.content}
-              </p>
+                {@html highlightCode(item.content)}
+              </div>
             {/if}
             <span
               class="text-[10px] text-muted-foreground/50 mt-1 block font-mono"
